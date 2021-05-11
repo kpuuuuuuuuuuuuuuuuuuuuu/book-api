@@ -7,7 +7,7 @@ import fastifyMongo from 'fastify-mongodb'
 const app = fastify({ logger: true })
 //on crée une route fastify sur l'url ou uri "/"
 app.get('/', async () => {
-    return { text: "Welcome sur cette api!" }
+    return { text: "Welcome sur cette Api qui liste des bookins!" }
 })
 // on connecte la bdd a mongo DB
 app.register(fastifyMongo, {
