@@ -26,10 +26,35 @@ app.get('/books', async () => {
 
     return books
 })
+//on déclare un shema qui permet d'ordonner (pour pas que ce soit modifier à l'input)
+// pour contraindre l'ordre des données de la request POST /books
+const createBookShema = {
+    type: 'object',
+    properties: {
+        title: { type: 'string' },
+        description: { type: 'string' },
+        image: { type: 'string' },
+        author: { type: 'string' },
+        price: { type: 'number' },
+        stars: { type: 'number' },
+    },
+    required: [
+        'title',
+        'description',
+        'image',
+        'author',
+        'price',
+        'stars'
+    ]
+}
 
 //on crée une route pr créer un new book
 //il faut respecter les conventions API REST
-app.post('/books', async (request) => {
+app.post('/books', {// on attache le shema a la route
+    schema: {
+        body: createBookShema
+    }
+}, async (request) => {
     //on recup toutes les données du body (cf scr shot 22)
     //le livre=objet json dont les données affichées ds body
     const book = request.body
@@ -37,9 +62,12 @@ app.post('/books', async (request) => {
     const collection = app.mongo.db.collection('books')
     //on enregistre le resultat ds bdd
     const result = await collection.insertOne(book)
+
+
+    //a l'interieur du result:ttes les opé enregistrées 
+    //comme on a inserer un seul elément avec insertOne
+    // on a une seule valeur ds notre tableau
     return result.ops[0]
-
-
 
 })
 

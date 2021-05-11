@@ -61,3 +61,8 @@ On récupére la collection books depuis mongodb
 On insére le livre dans la base de données
 On retourne le livre qui a été enregistré dans la base de données
 On commit et on push
+
+Exo 12 - Attacher un schéma de validation
+Dans le fichier src/index.js ajouter le schéma createBookSchema
+Attacher le schema à la route POST /books
+On commit et on push sur github
