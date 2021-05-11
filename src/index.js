@@ -13,9 +13,18 @@ app.get('/', async () => {
 app.register(fastifyMongo, {
     url: 'mongodb+srv://MyTodoApp:MyTodoApp@cluster0.obacx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 })
-// création de la route qui retourne les bookins
+
+// création de la route qui retourne les bookins de MongoDB
 app.get('/books', async () => {
-    return []
+    //mongo est une bdd qui contient la collection
+    //collection correspond a une table d ela bdd
+
+    const collection = app.mongo.db.collection('books')
+    //sur coll° on peut utiliser +sieurs f° ici on veut recup TOUS les livres
+    const books = await collection.find().toArray()
+    // et on return les bookins de la bdd
+
+    return books
 })
 
 

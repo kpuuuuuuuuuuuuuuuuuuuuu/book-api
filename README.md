@@ -38,3 +38,8 @@ Vous pouvez tester en demarant votre server (si dèja lancé vous pouvez l'arré
 On commit et on push
 
 pr installer une bdd mongoDB https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/ mais on va utiliser celle de David
+Exo 7 - Installer fastify mongodb extension
+Installer la paquet: fastify-mongodb avec la commande yarn add fastify-mongodb
+Configurer fastify mongo dans le fichier index.js (Vous pouvez utiliser l'url: mongodb+srv://MyTodoApp:MyTodoApp@cluster0.obacx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority)
+Vous pouvez tester en lancant votre server (faire Ctrl-C si le server est dèja lancé, pour lancer le server la commande est yarn start)
+On commit et on push sur github
