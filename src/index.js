@@ -27,6 +27,21 @@ app.get('/books', async () => {
     return books
 })
 
+//on crée une route pr créer un new book
+//il faut respecter les conventions API REST
+app.post('/books', async (request) => {
+    //on recup toutes les données du body (cf scr shot 22)
+    //le livre=objet json dont les données affichées ds body
+    const book = request.body
+    //on insére ds la bdd (mongodb) j'ai besoin de la collection
+    const collection = app.mongo.db.collection('books')
+    //on enregistre le resultat ds bdd
+    const result = await collection.insertOne(book)
+    return result.ops[0]
+
+
+
+})
 
 //cette f° démarre notre serveur d'api
 const start = async () => {

@@ -1,0 +1,15 @@
+GET http://localhost:3000
+###
+DELETE http://localhost:3000
+###
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+  "title": "OUI oui à Btz",
+  "description": "pour enfant et adulte",
+  "image": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1594616847",
+  "price": 7.7,
+  "author": "Kpu de Biarritz",
+  "stars": 5
+}

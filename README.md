@@ -43,3 +43,21 @@ Installer la paquet: fastify-mongodb avec la commande yarn add fastify-mongodb
 Configurer fastify mongo dans le fichier index.js (Vous pouvez utiliser l'url: mongodb+srv://MyTodoApp:MyTodoApp@cluster0.obacx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority)
 Vous pouvez tester en lancant votre server (faire Ctrl-C si le server est dèja lancé, pour lancer le server la commande est yarn start)
 On commit et on push sur github
+Exo 8 - Retourner tout les livres d'une BDD
+Créer la route /books
+On récupére la collection "books" depuis mongodb
+On récupére tout les livres depuis notre collection
+On retourne les livres
+On commit et on push
+Exo 9 - Installer et mettre en place nodemon
+Installer nodemon avec la commande yarn add nodemon
+Modifier le script start dans le package.json pour utiliser nodemon
+On commit et on push
+
+Exo 11 - Créer un livre
+On créer une route fastify POST /books
+On récupére les données de la requête en utilisant request.body
+On récupére la collection books depuis mongodb
+On insére le livre dans la base de données
+On retourne le livre qui a été enregistré dans la base de données
+On commit et on push
