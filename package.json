@@ -1,0 +1,20 @@
+{
+  "name": "book-api",
+  "version": "1.0.0",
+  "description": "Api qui liste es livres  de book-native-api",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://kpuuuuuuuuuuuuuuuuuuuuu@github.com/kpuuuuuuuuuuuuuuuuuuuuu/book-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kpuuuuuuuuuuuuuuuuuuuuu/book-api/issues"
+  },
+  "homepage": "https://github.com/kpuuuuuuuuuuuuuuuuuuuuu/book-api#readme"
+}
