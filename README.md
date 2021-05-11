@@ -32,3 +32,9 @@ Exo 5 - Un server fastify
 Dans src/index.js ajouter le code permettant de démarer un server sur le port 3000
 Vous pouvez lancer la commander yarn start pour tester votre server (vous pouvez appuyer sur Ctrl-C afin de quitter le server)
 On commit et on push
+Exo 6 - afficher un text de bienvenue sur la route "/"
+Dans src/index.js ajouter une route get avec le chemin / et retourner un objet json de votre choix
+Vous pouvez tester en demarant votre server (si dèja lancé vous pouvez l'arréter avec la touche Ctrl-C dans votre terminal, pour lancer le server faire yarn start).
+On commit et on push
+
+pr installer une bdd mongoDB https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/ mais on va utiliser celle de David

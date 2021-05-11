@@ -1,12 +1,21 @@
 //test console.log("Hello")
 //on importe la librairie fastify
 import fastify from 'fastify'
+import fastifyMongo from 'fastify-mongodb'
 //on crée une application fastify en utilisant l'import de notre librairie ,
 //  on config fastify pour afficher des logs
 const app = fastify({ logger: true })
-//on crée une route fastify sur l'url "/"
+//on crée une route fastify sur l'url ou uri "/"
 app.get('/', async () => {
     return { text: "Welcome sur cette api!" }
+})
+// on connecte la bdd a mongo DB
+app.register(fastifyMongo, {
+    url: 'mongodb+srv://MyTodoApp:MyTodoApp@cluster0.obacx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+})
+// création de la route qui retourne les bookins
+app.get('/books', async () => {
+    return []
 })
 
 
