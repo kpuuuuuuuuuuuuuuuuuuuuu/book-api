@@ -14,6 +14,9 @@ Content-Type: application/json
   "stars": 5
 }
 ###
+
+GET http://localhost:3000/books/83624869839864398
+###
 PATCH http://localhost:3000/books/609a8b53ecaf8b8aa776d70b
 Content-Type: application/json
 
@@ -23,3 +26,5 @@ Content-Type: application/json
   "price": 2.7,
   "stars": 1
 }
+###
+DELETE http://localhost:3000/books/609a87137fdc501fd1b95669

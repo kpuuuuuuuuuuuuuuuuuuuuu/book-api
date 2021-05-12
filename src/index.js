@@ -87,6 +87,7 @@ app.patch('/books/:id', async (request) => {
 
 
     //console.log(result)
+    //ON GARDE LE STATUS CODE 200 pour le patch pas de message error
     // on retourne le book
     return book
 })
@@ -105,6 +106,8 @@ app.delete('/books/:id', async (request) => {
     await collection.deleteOne({
         _id: new app.mongo.ObjectId(id)
     })
+
+    reply.status(204)
 
     return null
 })
@@ -153,6 +156,7 @@ app.post('/books', {// on attache le shema a la route
     //a l'interieur du result:ttes les opé enregistrées 
     //comme on a inserer un seul elément avec insertOne
     // on a une seule valeur ds notre tableau
+    reply.status(201)
     return result.ops[0]
 
 })
