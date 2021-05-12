@@ -13,3 +13,13 @@ Content-Type: application/json
   "author": "Kpu de Biarritz",
   "stars": 5
 }
+###
+PATCH http://localhost:3000/books/609a8b53ecaf8b8aa776d70b
+Content-Type: application/json
+
+{
+  // Mettre ici les champs du livre à mettre à jour
+  "title": "Mauvais Livre",
+  "price": 2.7,
+  "stars": 1
+}

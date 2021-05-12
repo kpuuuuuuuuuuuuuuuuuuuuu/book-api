@@ -66,3 +66,17 @@ Exo 12 - Attacher un schéma de validation
 Dans le fichier src/index.js ajouter le schéma createBookSchema
 Attacher le schema à la route POST /books
 On commit et on push sur github
+
+Exo 13 - Récupérer un seule livre
+Dans le src/index.js ajouter une route GET /book/:id
+Récupérer le paramètre id depuis la route
+Récupérer le livre avec l'id depuis MongoDB
+Retourner le livre
+On commit et on push
+
+Exo 14 - Mettre à jour et supprimer
+Dans le src/index.js écrire le code pour ces deux routes:
+PATCH /books/:id
+DELETE /books/:id
+Vous pouvez tester avec le fichier api.http
+On commit et on push

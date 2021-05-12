@@ -34,15 +34,81 @@ app.get('/books/:id', async (request) => {
 
     // On récupére notre collection mongodb
     const collection = app.mongo.db.collection('books')
+    // Ici on s'assure de ne pas avoir d'erreur
+    try {
+        // Nous récupérons le livre avec l'id spécifié dans la route
+        // On vas chercher un seul livre par son ID
+        //ds mongodb les id st cryptés par sécurité
+        //on peut pas les return en string il faut les passer en ObjectId
+        const book = await collection.findOne({ _id: new app.mongo.ObjectId(id) })
 
-    // On vas chercher un seul livre par son ID
-    //ds mongodb les id st cryptés par sécurité
-    //on peut pas les return en string il faut les passer en ObjectId
-    const book = await collection.findOne({ _id: new app.mongo.ObjectId(id) })
+        // Si il n'y a pas de livre, nous levons une erreur
+        if (!book) {
+            throw new Error('This books does not exists')
+        }
 
-    // On retourne le livre récupéré depuis la base de données
+        // Si tout c'est bien passé, on retourne le livre
+        return book
+    } catch (error) {
+        // Ici, si la moindre erreur est survenu à l'intérieur
+        // du block try nous exécutons le code suivant:
+
+        // On change le status code par 404 (Not Found)
+        reply.status(404)
+
+        // On retourne le message de l'erreur
+        return { error: error.message }
+    }
+
+
+})
+
+//Route ou endpoint pour MAJ un book avec rqt PATCH
+app.patch('/books/:id', async (request) => {
+    const id = request.params.id
+    const updateFields = request.body
+
+    const collection = app.mongo.db.collection('books')
+    //il faut utiliser: await collection.updateOne({_id:new app.mongo.ObjectId(id)}, nouveauLivre)
+    // on maj en spécifiant les fields
+    await collection.updateOne(
+        //ici on spécifie les queries à MAJ:
+        { _id: new app.mongo.ObjectId(id) }
+        //on spécifie les champs "$set"
+        , { $set: updateFields },
+    )
+
+
+    // on recup le book maj dans la bdd
+
+    const book = await collection.findOne({
+        _id: new app.mongo.ObjectId(id),
+    })
+
+
+    //console.log(result)
+    // on retourne le book
     return book
 })
+
+
+
+//Route ou endpoint pour SUPPRIMER un book avec rqt DELETE
+
+// Suppression d'un livre
+app.delete('/books/:id', async (request) => {
+    const id = request.params.id
+    // Pour supprimer un livre avec MongoDB
+    // il faut utiliser : await collection.deleteOne({ _id: new app.mongo.ObjectId(id) })
+    const collection = app.mongo.db.collection('books')
+
+    await collection.deleteOne({
+        _id: new app.mongo.ObjectId(id)
+    })
+
+    return null
+})
+
 
 
 //on déclare un shema qui permet d'ordonner (pour pas que ce soit modifier à l'input)
