@@ -7,7 +7,7 @@ import fastifyMongo from 'fastify-mongodb'
 const app = fastify({ logger: true })
 //on crée une route fastify sur l'url ou uri "/"
 app.get('/', async () => {
-    return { text: "Welcome sur cette Api qui liste des bookins!" }
+    return { text: "Welcome: baby Api qui liste des bookins!" }
 })
 // on connecte la bdd a mongo DB
 app.register(fastifyMongo, {
@@ -26,6 +26,25 @@ app.get('/books', async () => {
 
     return books
 })
+// On créé une route qui retourne qu'un livre par son
+// identifiant
+app.get('/books/:id', async (request) => {
+    // On récupére l'identifiant rentré dans notre url
+    const id = request.params.id
+
+    // On récupére notre collection mongodb
+    const collection = app.mongo.db.collection('books')
+
+    // On vas chercher un seul livre par son ID
+    //ds mongodb les id st cryptés par sécurité
+    //on peut pas les return en string il faut les passer en ObjectId
+    const book = await collection.findOne({ _id: new app.mongo.ObjectId(id) })
+
+    // On retourne le livre récupéré depuis la base de données
+    return book
+})
+
+
 //on déclare un shema qui permet d'ordonner (pour pas que ce soit modifier à l'input)
 // pour contraindre l'ordre des données de la request POST /books
 const createBookShema = {
@@ -50,6 +69,7 @@ const createBookShema = {
 
 //on crée une route pr créer un new book
 //il faut respecter les conventions API REST
+//api rest fonctionne ac les endpoints ou route ou uri ou url
 app.post('/books', {// on attache le shema a la route
     schema: {
         body: createBookShema
