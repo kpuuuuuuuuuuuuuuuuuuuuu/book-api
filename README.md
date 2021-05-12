@@ -118,3 +118,8 @@ Importer le plugin dans src/index.js
 Enregistrer le plugin dans src/index.js
 On commit et on push
 
+Exo 19 - Ajouter la configuration HOST
+Dans le fichier .env.dist ajouter la valeur de configuration HOST
+Dans le fichier src/index.js et dans la fonction app.listen ajouter process.env.HOST
+On commit et on push
+

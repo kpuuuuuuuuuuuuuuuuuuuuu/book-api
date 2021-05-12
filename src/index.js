@@ -19,6 +19,10 @@ app.register(fastifyMongo, {
     url: process.env.MONGO_URL
 })
 
+// On enregistre le plugin CORS afin de pouvoir
+// communiquer avec un client (ex: Une application React Native)
+app.register(fastifyCors)
+
 // création de la route qui retourne les bookins de MongoDB
 app.get('/books', async () => {
     //mongo est une bdd qui contient la collection
@@ -172,9 +176,9 @@ const start = async () => {
     //await app.listen(3000)
     // ecoute sur le serveur 3000 toutes les rqtes
     //on remplace par un port new config
-    await app.listen(process.env.PORT)
+    await app.listen(process.env.PORT, process.env.HOST)
 
-    console.log('le serveur est lançé! Vous pouvez visiter sur: http://localhost:3000')
+    console.log('le serveur est lançé! Vous pouvez visiter sur: http://${process.env.HOST}:${process.env.PORT}')
 }
-// Et lancement fonction démarrage
+// step 1 de ce fichier : Lancement fonction démarrage
 start()
