@@ -1,6 +1,20 @@
 Api qui liste es livres 
 de book-native-api
 API Restfull d'une librairie (pour le fun)
+
+Cloner le projet:
+git clone https://github.com/Djeg/book-api-test.git
+Installer les dépendances
+yarn install
+Configurer l'application:
+
+Copier coller .env.dist dans .env
+Modifier vos propres valeur de configuration
+Lancer le server:
+
+yarn start
+
+
 Les exercices
 Exo 1 - Mettre en place un README.md
 Cloner ce projet dans le répertoire de votre choix
@@ -80,3 +94,4 @@ PATCH /books/:id
 DELETE /books/:id
 Vous pouvez tester avec le fichier api.http
 On commit et on push
+
