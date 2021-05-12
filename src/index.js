@@ -168,8 +168,11 @@ app.post('/books', {// on attache le shema a la route
 //cette f° démarre notre serveur d'api
 const start = async () => {
     console.log('serveur qui run..')
-    await app.listen(3000)
+    //await app.listen(3000)
     // ecoute sur le serveur 3000 toutes les rqtes
+    //on remplace par un port new config
+    await app.listen(process.env.PORT)
+
     console.log('le serveur est lançé! Vous pouvez visiter sur: http://localhost:3000')
 }
 // Et lancement fonction démarrage

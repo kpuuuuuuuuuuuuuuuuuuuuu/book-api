@@ -95,3 +95,20 @@ DELETE /books/:id
 Vous pouvez tester avec le fichier api.http
 On commit et on push
 
+Exo 15 - Mettre de la configuration
+Créer un fichier .env.dist avec l'url MONGO_DB
+Ignorer le fichier .env dans le fichier .gitignore
+On commit et on push
+
+Exo 16 - Utiliser des variables d'environments
+Installer la librairie "dotenv" (yarn add dotenv)
+Importer la fonction config depuis dotenv
+Lancer la fonctions config
+Remplacer l'url mongo db par notre valeur de configuration process.env.MONGO_URL
+On commit et push
+
+Exo 17 - Transform le port en configuration
+Ajouter la variable PORT dans le fichier .env.dist (vous pouvez aussi l'ajouter dans le fichier .env)
+Changer dans src/index.js le port du server
+On commit et push
+
