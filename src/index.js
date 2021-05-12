@@ -2,6 +2,7 @@
 //on importe la librairie fastify
 import fastify from 'fastify'
 import fastifyMongo from 'fastify-mongodb'
+import fastifyCors from 'fastify-cors'
 import { config } from 'dotenv'
 //on initialise les val du fichier.env (connection config
 config()

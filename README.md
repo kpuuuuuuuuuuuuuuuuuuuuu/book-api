@@ -112,3 +112,9 @@ Ajouter la variable PORT dans le fichier .env.dist (vous pouvez aussi l'ajouter 
 Changer dans src/index.js le port du server
 On commit et push
 
+Exo 18 - Installer le plugin CORS
+Installer le plugin : yarn add fastify-cors
+Importer le plugin dans src/index.js
+Enregistrer le plugin dans src/index.js
+On commit et on push
+
