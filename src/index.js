@@ -4,7 +4,7 @@ import fastify from 'fastify'
 import fastifyMongo from 'fastify-mongodb'
 import { config } from 'dotenv'
 //on initialise les val du fichier.env (connection config
-consolefig()
+config()
 
 //on crée une application fastify en utilisant l'import de notre librairie ,
 //  on config fastify pour afficher des logs
