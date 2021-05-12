@@ -28,7 +28,7 @@ app.get('/books', async () => {
 })
 // On créé une route qui retourne qu'un livre par son
 // identifiant
-app.get('/books/:id', async (request) => {
+app.get('/books/:id', async (request, reply) => {
     // On récupére l'identifiant rentré dans notre url
     const id = request.params.id
 
@@ -97,7 +97,7 @@ app.patch('/books/:id', async (request) => {
 //Route ou endpoint pour SUPPRIMER un book avec rqt DELETE
 
 // Suppression d'un livre
-app.delete('/books/:id', async (request) => {
+app.delete('/books/:id', async (request, reply) => {
     const id = request.params.id
     // Pour supprimer un livre avec MongoDB
     // il faut utiliser : await collection.deleteOne({ _id: new app.mongo.ObjectId(id) })
@@ -143,7 +143,7 @@ app.post('/books', {// on attache le shema a la route
     schema: {
         body: createBookShema
     }
-}, async (request) => {
+}, async (request, reply) => {
     //on recup toutes les données du body (cf scr shot 22)
     //le livre=objet json dont les données affichées ds body
     const book = request.body
