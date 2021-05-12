@@ -2,6 +2,10 @@
 //on importe la librairie fastify
 import fastify from 'fastify'
 import fastifyMongo from 'fastify-mongodb'
+import { config } from 'dotenv'
+//on initialise les val du fichier.env (connection config
+consolefig()
+
 //on crée une application fastify en utilisant l'import de notre librairie ,
 //  on config fastify pour afficher des logs
 const app = fastify({ logger: true })
@@ -11,7 +15,7 @@ app.get('/', async () => {
 })
 // on connecte la bdd a mongo DB
 app.register(fastifyMongo, {
-    url: 'mongodb+srv://MyTodoApp:MyTodoApp@cluster0.obacx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+    url: process.env.MONGO_URL
 })
 
 // création de la route qui retourne les bookins de MongoDB
